@@ -31,7 +31,7 @@ fn model(app: &App) -> Model {
 fn update(_app: &App, model: &mut Model, update: Update) {
     if let Some(ref mut network) = model.network {
         let state = model.env.state();
-        let network_output = network.forward_pass(state.to_vec());
+        let network_output = network.forward_pass(&state.to_vec());
         let env_input = f64::max(-1., f64::min(1., *network_output.first().unwrap()));
 
         if model.env.step(env_input).is_err() {

@@ -254,7 +254,7 @@ fn play_network(network: &mut Network) {
         }
 
         let inputs = state_to_inputs(&env);
-        let outputs: Vec<f64> = network.forward_pass(inputs.clone());
+        let outputs: Vec<f64> = network.forward_pass(&inputs.clone());
         let max_output_index: usize = move_from_outputs(&outputs);
 
         if env.step(max_output_index).is_err() {
@@ -284,7 +284,7 @@ fn main() {
                 }
 
                 let inputs = state_to_inputs(&env);
-                let outputs: Vec<f64> = network.forward_pass(inputs.clone());
+                let outputs: Vec<f64> = network.forward_pass(&inputs.clone());
                 let max_output_index: usize = move_from_outputs(&outputs);
 
                 if env.step(max_output_index).is_ok() {

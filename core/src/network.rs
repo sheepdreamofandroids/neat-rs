@@ -32,7 +32,7 @@ impl Network {
         requirements_fullfilled && has_no_value
     }
 
-    pub fn forward_pass(&mut self, inputs: Vec<f64>) -> Vec<f64> {
+    pub fn forward_pass(&mut self, inputs: &Vec<f64>) -> Vec<f64> {
         for i in &self.node_calculation_order {
             let node = self.nodes.get(*i).unwrap();
 
